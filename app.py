@@ -32,175 +32,184 @@ def parse_spintax(text):
     return text
 
 # --- 7-PHASE TEMPLATE ENGINE ---
-def get_campaign_content(phase, name, category, address):
+def get_campaign_content(phase, name, category, address, contact_name="Team"):
     """Returns the Subject, HTML Body, and Days until next phase."""
     
-    greeting = random.choice(["Hi", "Hello", "Greetings", "Hey"])
+    greeting = random.choice(["Hi", "Hello", "Greetings", "Dear"])
     
     # ---------------------------------------------------------
-    # PHASE 1: THE HOOK & CORE OFFER (Day 1)
-    # Focus: The missing button & $0 hosting offer.
+    # PHASE 1: THE HOOK & THE OFFER (Day 1)
+    # Goal: Get a "YES" to the free demo. Keep it short.
     # ---------------------------------------------------------
     if phase == 1:
-        subject = parse_spintax("{Quick question|Important note|Inquiry} regarding [Name]").replace("[Name]", name)
+        subject = parse_spintax("{Missing link|Google Maps error|Quick question} regarding [Name]").replace("[Name]", name)
         html = f"""
         <html>
-        <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #1a1a1a;">
-            <div style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e1e4e8;">
-                <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 30px 20px; text-align: center;">
-                    <h1 style="color: #2dd4bf; margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">STOP WEB RENT</h1>
-                </div>
-                <div style="padding: 30px;">
-                    <h2 style="color: #0f172a; font-size: 20px; margin-top: 0;">{greeting} {name} team,</h2>
-                    <p style="font-size: 16px; line-height: 1.6; color: #475569;">
-                        I was researching <strong>{category}</strong> services in <strong>{address}</strong> and noticed your clinic has an outstanding reputation. However, you are currently missing a critical asset: <strong>A "Website" button on your Google Maps profile.</strong>
-                    </p>
-                    <p style="font-size: 16px; line-height: 1.6; color: #475569;">
-                        We deploy <strong>0.1s Load Speed</strong> frameworks that are unhackable and cost <strong>$0 in monthly hosting fees</strong>.
-                    </p>
-                    <div style="background-color: #f8fafc; padding: 15px; border-left: 4px solid #0d9488; margin: 25px 0;">
-                        <strong>Exclusive Offer:</strong> I will use your current logo and clinic photos to build a live demo. If you don't love the performance, you pay nothing.
-                    </div>
-                    <a href="https://wa.me/966572562151?text=YES" style="background-color: #0d9488; color: #ffffff; padding: 14px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">REPLY 'YES' ON WHATSAPP FOR FREE DEMO</a>
-                </div>
+        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #1a1a1a; line-height: 1.6;">
+            <p>{greeting} {contact_name},</p>
+            <p>I was researching <strong>{category}</strong> clinics in <strong>{address}</strong> and noticed your practice has a fantastic reputation. However, you are missing a critical asset: <strong>a "Website" button on your Google Maps profile.</strong></p>
+            <p>Every day without that button, Google’s algorithm pushes you down the rankings, handing high-value patients to your competitors.</p>
+            <p>I build 0.1s High-Velocity websites specifically for healthcare clinics. <strong>Unlike Wix or Shopify, I charge $0 in monthly hosting fees.</strong></p>
+            <div style="background-color: #f8fafc; padding: 15px; border-left: 4px solid #0d9488; margin: 20px 0;">
+                <strong>My Offer: A Free 24-Hour Preview</strong><br>
+                I will use your current logo and photos to build a live demo. If you don't love the performance, you pay nothing.
             </div>
+            <p>Reply <strong>"YES"</strong> to this email (or <a href="https://wa.me/966572562151" style="color: #0d9488; font-weight: bold;">message me on WhatsApp here</a>), and I'll send you a private link to review your new site.</p>
+            <p>Best regards,<br><strong>Kiran Deb Mondal</strong><br>Principal Technologist | Stop Web Rent</p>
         </body>
         </html>
         """
-        days_to_next = 3 # Wait 3 days before Phase 2
+        days_to_next = 3
 
     # ---------------------------------------------------------
-    # PHASE 2: THE QUICK BUMP (Day 4)
-    # Focus: Simple, text-based follow-up to bump the previous email.
+    # PHASE 2: VISUAL PROOF & WHATSAPP INTEGRATION (Day 4)
+    # Goal: Highlight the features seen in your demo video.
     # ---------------------------------------------------------
     elif phase == 2:
-        subject = f"Re: {name} + Titan Engine"
+        subject = f"Re: {name} digital preview"
         html = f"""
         <html>
-        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #333333; line-height: 1.6;">
+        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #1a1a1a; line-height: 1.6;">
             <p>{greeting} again,</p>
-            <p>I’m floating this to the top of your inbox. Did you know that local {category} businesses without linked websites lose up to <strong>40% of map traffic</strong> to competitors?</p>
-            <p>I have capacity to build 2 free demos this week. Would you like {name} to be one of them? Just reply "YES" to this email.</p>
-            <p>Best,<br>Kiran</p>
+            <p>I wanted to follow up on my last email. When I build a Titan Engine site for a clinic like {name}, it's not just a digital brochure—it's a lead generation machine.</p>
+            <p><strong>Here is what your custom site will include:</strong></p>
+            <ul>
+                <li><strong>WhatsApp Booking:</strong> Patients can book appointments or chat with your reception desk in one tap.</li>
+                <li><strong>Multilingual Support:</strong> Instantly translates to Hindi, Bengali, Spanish, French, etc.</li>
+                <li><strong>Mobile-First Design:</strong> Looks and feels like a native app on your patients' phones.</li>
+            </ul>
+            <p><a href="https://dental-junction-behala.github.io/index.html" style="color: #0d9488; font-weight: bold;">You can click here to play with a live demo of a clinic we recently built.</a></p>
+            <p>Would you like me to build a custom prototype for {name}? Just reply "YES".</p>
+            <p>- Kiran</p>
         </body>
         </html>
         """
-        days_to_next = 4 # Wait 4 days before Phase 3
+        days_to_next = 4
 
     # ---------------------------------------------------------
-    # PHASE 3: THE FINANCIAL LOGIC / STOP WEB RENT (Day 8)
-    # Focus: The Math. Wix vs Titan.
+    # PHASE 3: THE FINANCIAL MATH (Day 8)
+    # Goal: Use the pricing table from your PDF to show the $1,841 savings.
     # ---------------------------------------------------------
     elif phase == 3:
-        subject = parse_spintax("{How to save|Stop wasting} $2,000+ on {Category} web hosting")
+        subject = parse_spintax("{Stop paying|How to save $1,800 on} website rent")
         html = f"""
         <html>
-        <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a;">
-            <div style="max-width: 600px; margin: 20px auto; padding: 20px;">
-                <p style="font-size: 16px;">{greeting},</p>
-                <p style="font-size: 16px;">Most clinics I speak to in {address} are trapped paying "Web Rent" — monthly fees to Wix, Squarespace, or Shopify that add up to thousands over a few years.</p>
-                
-                <table style="width: 100%; border-collapse: collapse; margin: 20px 0; border: 1px solid #e2e8f0;">
-                    <tr style="background-color: #f8fafc;">
-                        <th style="padding: 10px; text-align: left;">5-Year Cost Comparison</th>
-                        <th style="padding: 10px; color: #0d9488;">Titan Engine</th>
-                        <th style="padding: 10px;">Wix/Shopify</th>
-                    </tr>
-                    <tr>
-                        <td style="padding: 10px; border-top: 1px solid #e2e8f0;">Total Cost</td>
-                        <td style="padding: 10px; border-top: 1px solid #e2e8f0; font-weight: bold; color: #0d9488;">$274</td>
-                        <td style="padding: 10px; border-top: 1px solid #e2e8f0;">$2,115+</td>
-                    </tr>
-                </table>
-                <p style="font-size: 16px;">Why pay rent when you can own your digital asset outright? <a href="https://kiranmondal.gumroad.com/l/titanv50" style="color: #0d9488;">See how the Titan Engine works here.</a></p>
-            </div>
+        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #1a1a1a; line-height: 1.6;">
+            <p>{greeting} {contact_name},</p>
+            <p>Most business owners are trapped paying "Web Rent"—$30 to $50 every single month to Wix, Shopify, or WordPress just to keep their site online.</p>
+            <p>The Titan Engine changes that. <strong>Pay a $199 one-time setup fee, and own the asset forever.</strong></p>
+            
+            <table style="width: 100%; max-width: 500px; border-collapse: collapse; margin: 20px 0; border: 1px solid #e2e8f0; text-align: left;">
+                <tr style="background-color: #f8fafc;">
+                    <th style="padding: 10px; border-bottom: 2px solid #e2e8f0;">5-Year Cost</th>
+                    <th style="padding: 10px; border-bottom: 2px solid #e2e8f0; color: #0d9488;">Titan Engine</th>
+                    <th style="padding: 10px; border-bottom: 2px solid #e2e8f0;">Wix / Shopify</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">Setup Fee</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">$199 (Once)</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">$0</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">Hosting/Rent</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #e2e8f0; font-weight: bold; color: #0d9488;">$0</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">$1,740</td>
+                </tr>
+                <tr style="background-color: #fff1f2;">
+                    <td style="padding: 10px; font-weight: bold;">Total Cost</td>
+                    <td style="padding: 10px; font-weight: bold; color: #0d9488;">$274 (incl. domain)</td>
+                    <td style="padding: 10px; font-weight: bold; color: #e11d48;">$2,115</td>
+                </tr>
+            </table>
+            
+            <p>That is <strong>$1,841 in savings</strong>. If you want to stop renting and start owning, let's chat. <a href="https://wa.me/966572562151" style="color: #0d9488;">WhatsApp me here.</a></p>
+            <p>- Kiran</p>
         </body>
         </html>
         """
-        days_to_next = 5 # Wait 5 days before Phase 4
+        days_to_next = 4
 
     # ---------------------------------------------------------
-    # PHASE 4: THE FOMO & AI ANGLE (Day 13)
-    # Focus: The 2026 Ranking Risk. Urgency.
+    # PHASE 4: THE GOOGLE SHEET CMS (Day 12)
+    # Goal: Remove the "tech barrier". Dentists hate complex dashboards.
     # ---------------------------------------------------------
     elif phase == 4:
-        subject = parse_spintax("The 2026 Google update & [Name]").replace("[Name]", name)
+        subject = parse_spintax("Update {name} website using Excel?")
         html = f"""
         <html>
-        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #333333; line-height: 1.6;">
+        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #1a1a1a; line-height: 1.6;">
             <p>{greeting},</p>
-            <p>I wanted to share a quick warning regarding your Google Maps listing for {name}.</p>
-            <div style="background-color: #fff1f2; border-left: 4px solid #f43f5e; padding: 15px; margin: 15px 0;">
-                <strong>The 2026 AI Algorithm Shift:</strong> Google is rapidly prioritizing businesses with ultra-fast, linked websites. Profiles with missing "Website" buttons are gradually being pushed down the search results.
-            </div>
-            <p>Our 0.1s load speed architecture is specifically designed to signal high trust to Google's AI. Should I go ahead and build a preview for you so you can see the speed yourself?</p>
-            <p>Best,<br>Kiran</p>
+            <p>One of the main reasons clinics don't build websites is because they don't want to learn complex dashboards or pay a web developer every time they need to change a price or add a new service.</p>
+            <p>With our architecture, <strong>your website is hard-wired directly to a private Google Sheet.</strong></p>
+            <p>If you or your receptionist can type into an Excel file, you can manage your entire website. Change a price in the spreadsheet, and your live website updates globally in seconds.</p>
+            <p>Should I build a quick prototype so you can see how easy this is?</p>
+            <p>- Kiran</p>
         </body>
         </html>
         """
-        days_to_next = 5 # Wait 5 days before Phase 5
+        days_to_next = 6
 
     # ---------------------------------------------------------
-    # PHASE 5: RISK REVERSAL (Day 18)
-    # Focus: Removing all friction. It requires 0 effort from them.
+    # PHASE 5: THE FOMO / RANKING FEAR (Day 18)
+    # Goal: Create urgency. Action is required to survive.
     # ---------------------------------------------------------
     elif phase == 5:
-        subject = f"Free 24-hour build for {name} (No strings)"
+        subject = parse_spintax("The 2026 Google algorithm & [Name]").replace("[Name]", name)
         html = f"""
         <html>
-        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #333333; line-height: 1.6;">
-            <p>{greeting},</p>
-            <p>I know as a business owner in {address}, your time is limited. You probably haven't set up a website because of the time it takes to write copy, find photos, and deal with developers.</p>
-            <p><strong>Here is my guarantee:</strong></p>
-            <ul>
-                <li>You don't need to write a single word.</li>
-                <li>You don't need to provide photos (I'll use what's on your Google listing).</li>
-                <li>You get a live link in 24 hours.</li>
-            </ul>
-            <p>If you don't like it, we scrap it. No hard feelings. <a href="https://wa.me/966572562151" style="color: #0d9488;">Message me on WhatsApp to start.</a></p>
+        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #1a1a1a; line-height: 1.6;">
+            <p>{greeting} {contact_name},</p>
+            <p>I am reaching out one last time regarding the missing website link on your Google Maps profile because the rules of local SEO are changing.</p>
+            <div style="background-color: #fff1f2; border-left: 4px solid #f43f5e; padding: 15px; margin: 15px 0;">
+                <strong>The 2026 AI Algorithm Shift:</strong> Google’s AI search now significantly increases the weight of <i>linked, fast-loading</i> websites. Profiles without them are actively being suppressed in the Map Pack.
+            </div>
+            <p>Our Static-Site Architecture is unhackable and achieves a 100/100 Google PageSpeed score, ensuring you stay at the top of local searches.</p>
+            <p>Let me build a risk-free demo to secure your ranking. Reply "YES" and I'll start immediately.</p>
+            <p>- Kiran</p>
         </body>
         </html>
         """
-        days_to_next = 6 # Wait 6 days before Phase 6
+        days_to_next = 6
 
     # ---------------------------------------------------------
-    # PHASE 6: THE FOUNDER'S NOTE (Day 24)
-    # Focus: Stripped down, plain-text feel. Highly personal.
+    # PHASE 6: THE HUMAN CHECK-IN (Day 24)
+    # Goal: Plain text, highly personal. Sparks a reply.
     # ---------------------------------------------------------
     elif phase == 6:
         subject = "am I off base here?"
         html = f"""
         <html>
-        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #333333; line-height: 1.6;">
+        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #1a1a1a; line-height: 1.6;">
             <p>{greeting},</p>
-            <p>I've reached out a few times about getting {name} set up with a proper web engine to avoid the high monthly fees of standard builders.</p>
-            <p>Am I totally off base here, or is this just a bad time of year for you?</p>
-            <p>Either way, just let me know so I can update my notes.</p>
+            <p>I've reached out a few times about getting a high-speed, $0 monthly fee website set up for {name}.</p>
+            <p>Am I totally off base here, or is this just a really busy month for the clinic?</p>
+            <p>Just let me know so I can update my notes.</p>
             <p>- Kiran</p>
         </body>
         </html>
         """
-        days_to_next = 5 # Wait 5 days before Phase 7
+        days_to_next = 6
 
     # ---------------------------------------------------------
-    # PHASE 7: THE BREAKUP (Day 29)
-    # Focus: Professional exit, leaving the door open.
+    # PHASE 7: THE BREAKUP (Day 30)
+    # Goal: Take the offer away. Provide direct buy links.
     # ---------------------------------------------------------
     elif phase == 7:
-        subject = parse_spintax("{Closing your file|Last email} regarding [Name]").replace("[Name]", name)
+        subject = parse_spintax("{Closing my file|Last email} regarding [Name]").replace("[Name]", name)
         html = f"""
         <html>
-        <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a;">
-            <div style="max-width: 600px; margin: 20px auto; padding: 20px;">
-                <p style="font-size: 16px;">{greeting},</p>
-                <p style="font-size: 16px;">Since I haven't heard back, I'm going to assume that upgrading your digital footprint isn't a priority for {name} right now, so this will be my last email.</p>
-                <p style="font-size: 16px;">If you ever get tired of losing map traffic to other {category} clinics, or if you just want to stop paying monthly web rent, you know where to find me.</p>
-                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #64748b;">
-                    <strong>Kiran Deb Mondal</strong><br>
-                    Principal Business Technologist | Stop Web Rent<br>
-                    <a href="https://www.StopWebRent.com" style="color: #0d9488;">www.StopWebRent.com</a> | <a href="https://kiranmondal.gumroad.com/l/titanv50" style="color: #0d9488;">Direct Purchase Link</a>
-                </div>
-            </div>
+        <body style="font-family: Arial, sans-serif; font-size: 15px; color: #1a1a1a; line-height: 1.6;">
+            <p>{greeting},</p>
+            <p>Since I haven't heard back, I'll assume that fixing the missing website on your Google profile isn't a priority right now. This will be my last email.</p>
+            <p>If you ever get tired of losing map traffic to competitors, or if you just want to stop paying monthly "Web Rent" to Wix or Shopify, you know where to find me.</p>
+            <p>Wishing {name} a highly successful year.</p>
+            <br>
+            <p style="font-size: 13px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+                <strong>Kiran Deb Mondal</strong><br>
+                Principal Technologist | Stop Web Rent<br>
+                WhatsApp: <a href="https://wa.me/966572562151" style="color: #0d9488;">+966 572562151</a><br>
+                Website: <a href="https://www.stopwebrent.com" style="color: #0d9488;">www.stopwebrent.com</a>
+            </p>
         </body>
         </html>
         """
@@ -210,7 +219,6 @@ def get_campaign_content(phase, name, category, address):
         return None, None, 0
 
     return subject, html, days_to_next
-
 # --- UI & DASHBOARD ---
 st.title("🛡️ Titan Engine v2.0 | 7-Phase Campaign Manager")
 st.markdown("Automated Lead Routing, Scheduling, and Delivery")
