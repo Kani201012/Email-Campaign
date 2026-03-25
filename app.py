@@ -78,7 +78,7 @@ def get_campaign_content(phase, name, category, address, contact_name="Team"):
                 <li><strong>Multilingual Support:</strong> Instantly translates to Hindi, Bengali, Spanish, French, etc.</li>
                 <li><strong>Mobile-First Design:</strong> Looks and feels like a native app on your patients' phones.</li>
             </ul>
-            <p><a href="https://dental-junction-behala.github.io/index.html" style="color: #0d9488; font-weight: bold;">You can click here to play with a live demo of a clinic we recently built.</a></p>
+            <p><a href="https://tvkfurniture-bit.github.io/ghosh-dental/index.html" style="color: #0d9488; font-weight: bold;">You can click here to play with a live demo of a clinic we recently built.</a></p>
             <p>Would you like me to build a custom prototype for {name}? Just reply "YES".</p>
             <p>- Kiran</p>
         </body>
